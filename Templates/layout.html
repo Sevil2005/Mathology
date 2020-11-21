@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style1.css') }}">
+    
+    <!-- Fav Icon -->
+    <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,600,600i,700,700i&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link href="{{ url_for('static', filename='assets/css/font-awesome-all.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/flaticon.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/owl.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/jquery.fancybox.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/animate.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/imagebg.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/global.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/header.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/color.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/responsive.css') }}" rel="stylesheet">
+
+    <!--  Bootstrap css file  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+
+    <!--  font awesome icons  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='all.min.css') }}">
+    
+    <!--  custom css file  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+    
+    {% block style %}{% endblock %}
+
+    {% if title %}
+        <title>Mathology - {{ title }}</title>
+    {% else %}
+        <title>Mathology</title>
+    {% endif %}
+</head>
+<body class="boxed_wrapper">
+    <!-- preloader -->
+    <div class="preloader">
+      <div id="handle-preloader" class="handle-preloader">
+          <div class="animation-preloader">
+              <div class="spinner"></div>
+              <div class="txt-loading">
+                  <span data-text-preloader="M" class="letters-loading">
+                      M
+                  </span>
+                  <span data-text-preloader="A" class="letters-loading">
+                      A
+                  </span>
+                  <span data-text-preloader="T" class="letters-loading">
+                      T
+                  </span>
+                  <span data-text-preloader="H" class="letters-loading">
+                      H
+                  </span>
+                  <span data-text-preloader="O" class="letters-loading">
+                      O
+                  </span>
+                  <span data-text-preloader="L" class="letters-loading">
+                      L
+                  </span>
+                  <span data-text-preloader="O" class="letters-loading">
+                      O
+                  </span>
+                  <span data-text-preloader="G" class="letters-loading">
+                      G
+                  </span>
+                  <span data-text-preloader="Y" class="letters-loading">
+                      Y
+                  </span>
+              </div>
+          </div>  
+      </div>
+  </div>
+  <!-- preloader end -->
+    <header class="site-header">
+      <nav class="navbar navbar-expand-xl navbar-light bg-dark" style="padding: 0.7rem 3rem ;">
+          <a class="navbar-brand mr-4" href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" style="height: 70px; width: 200px; object-fit: cover;"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link active" href="{{ url_for('home') }}">Ana Səhifə</a>
+              <a class="nav-item nav-link" href="{{ url_for('about') }}">Haqqımızda</a>
+              <a class="nav-item nav-link" href="{{ url_for('olympiads') }}">Riyaziyyat Olimpiada Sualları</a>
+              <a class="nav-item nav-link" href="{{ url_for('materials') }}">Tövsiyə Etdiyimiz Materiallar</a>
+              <a class="nav-item nav-link" href="{{ url_for('blog') }}">Məsləhət Bloqu</a>
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+              {% if current_user.is_authenticated %}
+                <a class="nav-item nav-link" href="{{ url_for('account') }}">Hesabım</a>
+                <a class="nav-item nav-link" href="{{ url_for('logout') }}">Çıxış</a>
+              {% else %}
+                <a class="nav-item nav-link" href="{{ url_for('login') }}">Daxil Ol</a>
+                <a class="nav-item nav-link" href="{{ url_for('register') }}">Qeydiyyat</a>
+              {% endif %}
+            </div>
+          </div>
+      </nav>
+    </header>
+    <main role="main">
+      <div class="row">
+        <div class="col-md-12">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </main>
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="auto-container">
+                <div class="widget-section">
+                    <div class="row clearfix">
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget contact-widget">
+                                <div class="widget-title">
+                                    <h3>Contact Us</h3>
+                                    <div class="decor" style="background-image: url(assets/images/icons/decor-3.png);"></div>
+                                </div>
+                                <div class="widget-content">
+                                    <div class="box">
+                                        <h5>Office Location</h5>
+                                        <p>124, Queens walk 2nd cross newyork 5241</p>
+                                    </div>
+                                    <div class="box">
+                                        <h5>Quick Contact</h5>
+                                        <ul class="clearfix">
+                                            <li><i class="flaticon-music"></i><a href="tel:0055567890">+00 555 67 890</a></li>
+                                            <li><i class="flaticon-gmail"></i><a href="mailto:supportteam@info.com">supportteam@info.com</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget links-widget">
+                                <div class="widget-title">
+                                    <h3>Useful Links</h3>
+                                    <div class="decor" style="background-image: url(assets/images/icons/decor-3.png);"></div>
+                                </div>
+                                <div class="widget-content">
+                                    <div class="row clearfix">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 column">
+                                            <ul class="links clearfix">
+                                                <li><a href="index.html">Data Science</a></li>
+                                                <li><a href="index.html">Ware Housing</a></li>
+                                                <li><a href="index.html">Analytics</a></li>
+                                                <li><a href="index.html">Visualisation</a></li>
+                                                <li><a href="index.html">Migration</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12 column">
+                                            <ul class="links clearfix">
+                                                <li><a href="index.html">Home</a></li>
+                                                <li><a href="index.html">Company</a></li>
+                                                <li><a href="index.html">Services</a></li>
+                                                <li><a href="index.html">Works</a></li>
+                                                <li><a href="index.html">Contact</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 footer-column">
+                            <div class="footer-widget about-widget">
+                                <div class="widget-title">
+                                    <h3>About Company</h3>
+                                    <div class="decor" style="background-image: url(assets/images/icons/decor-3.png);"></div>
+                                </div>
+                                <div class="widget-content">
+                                    <div class="box">
+                                        <figure class="logo"><a href="index.html"><img src="assets/images/footer-logo.png" alt=""></a></figure>
+                                        <div class="text">
+                                            <p>Our goal is to help our companies maintain achieve best class positions their respective industries & our team works occur that pleasures have to be repudiated.</p>
+                                        </div>
+                                    </div>
+                                    <div class="subscribe-box">
+                                        <form action="http://st.ourhtmldemo.com/new/Naxly/index.html" method="post">
+                                            <div class="form-group">
+                                                <input type="email" name="email" placeholder="Email Address..." required="">
+                                                <button type="submit" class="theme-btn style-one">Subscribe Us</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom style-one">
+            <div class="auto-container clearfix">
+                <div class="copyright pull-left">
+                    <p>Copyright &copy; <a href="index.html">Mathology</a>, All Rights Reserved.</p>
+                </div>
+                <ul class="footer-nav pull-right">
+                    <li><a href="index.html">Privacy Policy</a></li>
+                    <li><a href="index.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+<!--Scroll to top-->
+<button class="scroll-top scroll-to-target" data-target="html">
+  <span class="fas fa-angle-up"></span>
+</button>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- jequery plugins -->
+    <script src="{{ url_for('static', filename='assets/js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/owl.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/wow.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/validation.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.fancybox.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/appear.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.countTo.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/scrollbar.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/tilt.jquery.js') }}"></script>
+
+    <!-- main-js -->
+    <script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
+  </body>
+</html>

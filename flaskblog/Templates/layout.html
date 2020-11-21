@@ -30,6 +30,16 @@
     <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='assets/css/responsive.css') }}" rel="stylesheet">
 
+
+    <!--  Bootstrap css file  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+
+    <!--  font awesome icons  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='all.min.css') }}">
+    
+    <!--  custom css file  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+    
     {% block style %}{% endblock %}
 
     {% if title %}

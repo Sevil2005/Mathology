@@ -1,39 +1,46 @@
 {% extends "admin/starter.html" %}
 {% block main %}
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-
-                <button class="btn  btn-primary mb-3" id="submit_data">Submit</button>
-                <div class="table-responsive">
-                    <table class="table  table-bordered" id="makeEditable">
-                        <thead>
-                        <tr>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>Default</td>
-                            <td>def@somemail.com</td>
-                            <td name="buttons"><div class=" pull-right"><button id="bEdit" type="button" class="btn btn-sm btn-soft-success btn-circle mr-2" onclick="rowEdit(this);"><i class="dripicons-pencil"></i></button><button id="bElim" type="button" class="btn btn-sm btn-soft-danger btn-circle" onclick="rowElim(this);"><i class="dripicons-trash" aria-hidden="true"></i></button><button id="bAcep" type="button" class="btn btn-sm btn-soft-purple mr-2 btn-circle" style="display: none;" onclick="rowAcep(this);"><i class="dripicons-checkmark"></i></button><button id="bCanc" type="button" class="btn btn-sm btn-soft-info btn-circle" style="display: none;" onclick="rowCancel(this);"><i class="dripicons-cross" aria-hidden="true"></i></button></div></td>
-                        </tr>
-                        <tr class="success">
-                            <td>Success</td>
-                            <td>john@example.com</td>
-                            <td name="buttons"><div class=" pull-right"><button id="bEdit" type="button" class="btn btn-sm btn-soft-success btn-circle mr-2" onclick="rowEdit(this);"><i class="dripicons-pencil"></i></button><button id="bElim" type="button" class="btn btn-sm btn-soft-danger btn-circle" onclick="rowElim(this);"><i class="dripicons-trash" aria-hidden="true"></i></button><button id="bAcep" type="button" class="btn btn-sm btn-soft-purple mr-2 btn-circle" style="display: none;" onclick="rowAcep(this);"><i class="dripicons-checkmark"></i></button><button id="bCanc" type="button" class="btn btn-sm btn-soft-info btn-circle" style="display: none;" onclick="rowCancel(this);"><i class="dripicons-cross" aria-hidden="true"></i></button></div></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <span class="float-right">
-                    <button id="but_add" class="btn btn-danger">Add New Row</button>
-                </span><!--end table-->     
-            </div><!--end card-body-->
-        </div><!--end card-->
-    </div> <!-- end col -->
-</div> <!-- end row -->
+<button onclick="newRow()">New Row</button>
+<table class="table">
+    <tr>
+        <th>#</th>
+        <th>First</th>
+        <th>Last</th>
+        <th>Handle</th>
+        <th>Actions</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Sevil</td>
+        <td>Rasulova</td>
+        <td>sevillerasulova@</td>
+        <td>
+            <button onclick="updateItem(this)"><i class="fa fa-edit"></i></button>
+            <button onclick="removeItem(this)"><i class="fa fa-trash"></i></button>
+        </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Leyla</td>
+        <td>Mustafayeva</td>
+        <td>leylamustafayeva@</td>
+        <td>
+            <button onclick="updateItem(this)"><i class="fa fa-edit"></i></button>
+            <button onclick="removeItem(this)"><i class="fa fa-trash"></i></button>
+        </td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Terane</td>
+        <td>Hummetova</td>
+        <td>teranehummetova@</td>
+        <td>
+            <button onclick="updateItem(this)"><i class="fa fa-edit"></i></button>
+            <button onclick="removeItem(this)"><i class="fa fa-trash"></i></button>
+        </td>
+    </tr>
+</table>
+{% endblock %}
+{% block script %}
+<script src="../static/js/table.js"></script>
 {% endblock %}

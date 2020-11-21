@@ -1,0 +1,161 @@
+{% extends "layout.html" %}
+{% block style %}
+    <!--  Bootstrap css file  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+
+    <!--  font awesome icons  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='all.min.css') }}">
+
+    <!--  custom css file  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+{% endblock %}
+{% block content %}
+    <!--  ======================= Start Main Area ================================ -->
+    <main class="site-main">
+
+        
+        <!--  ======================= Start Banner Area =======================  -->
+        <section class="site-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 site-title">
+                        <h3 class="title-text text-uppercase">Riyaziyyat & Onun Sirrli Dünyası</h3>
+                        <p class="title-text">Mathology ilə riyaziyyat olimpiadalarına uğurla hazırlaşmanın sirrlərini kəşf edəcəksiniz.</p>
+                        <div class="site-buttons">
+                            <div class="d-flex flex-row flex-wrap">
+                                <button type="button" class="btn button primary-button mr-4 text-uppercase">Daxİl Ol</button>
+                                <button type="button" class="btn button secondary-button text-uppercase">Qeydİyyat</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--  ======================= End Banner Area =======================  -->
+ 
+
+        <!--  ========================= About Area ==========================  -->
+
+        <section class="about-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="about-image">
+                            <img src="{{ url_for('static', filename='images/about-us.png') }}" alt="About us" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 about-title">
+                        <h2 class="text-uppercase pt-5">
+                            <span>Riyaziyyat</span>
+                            <span>Olimpiada</span>
+                            <span>larına Hazırlıq</span>
+                        </h2>
+                        <div class="paragraph py-4 w-75">
+                            <p class="para">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error rerum iure obcaecati vel
+                                possimus officia maiores perferendis ut! Quos, perspiciatis.
+                            </p>
+                            <p class="para">
+                                It is a long established fact that a reader will be distracted by the readable content
+                                of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                                more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                                here
+                            </p>
+                        </div>
+                        <button type="button" class="btn button primary-button text-uppercase">Başla</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--  ========================= End About Area ==========================  -->
+
+
+
+        <!--  ====================== Start Services Area =============================  -->
+
+        <section class="services-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center services-title">
+                        <h1 class="text-uppercase title-text">Bölmələr</h1>
+                        <p class="para">
+                            There are many variations of passages of Lorem Ipsum available, but the majority have
+                            suffered alteration in some form, by injected humour
+                        </p>
+                    </div>
+                </div>
+                <div class="container services-list">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="services">
+                                <div class="sevices-img text-center py-4">
+                                    <img src="{{ url_for('static', filename='images/services/s1.png') }}" alt="Services-1">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-uppercase font-roboto">Algebra</h5>
+                                    <p class="card-text text-secondary">
+                                        Some quick example text to build on the card
+                                        title and make up
+                                        the bulk of the card's content.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="services">
+                                <div class="sevices-img text-center py-4">
+                                    <img src="{{ url_for('static', filename='images/services/s2.png') }}" alt="Services-2">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-uppercase font-roboto">Geometry</h5>
+                                    <p class="card-text text-secondary">
+                                        Some quick example text to build on the card
+                                        title and make up
+                                        the bulk of the card's content.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="services">
+                                <div class="sevices-img text-center py-4">
+                                    <img src="{{ url_for('static', filename='images/services/s3.png') }}" alt="Services-3">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-uppercase font-roboto">Combinatorics</h5>
+                                    <p class="card-text text-secondary">
+                                        Some quick example text to build on the card
+                                        title and make up
+                                        the bulk of the card's content.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="services">
+                                <div class="sevices-img text-center py-4">
+                                    <img src="{{ url_for('static', filename='images/services/s4.png') }}" alt="Services-4">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-uppercase font-roboto">Number Theory</h5>
+                                    <p class="card-text text-secondary">
+                                        Some quick example text to build on the card
+                                        title and make up
+                                        the bulk of the card's content.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--  ====================== End Services Area =============================  -->
+
+        
+    </main>
+    <!--  ======================= End Main Area ================================ -->
+
+{% endblock content %}
